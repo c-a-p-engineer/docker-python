@@ -1,0 +1,15 @@
+version: '3.8'
+volumes:
+  db-store:
+services:
+  python:
+    container_name: python
+    build:
+      context: .
+      dockerfile: ./python/Dockerfile
+      args:
+        - PYTHON_VERSION=${PYTHON_VERSION}
+    volumes:
+      - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
+    working_dir: ${APP_CODE_PATH_CONTAINER}
+    tty: true

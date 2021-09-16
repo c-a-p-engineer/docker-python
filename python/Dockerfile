@@ -1,0 +1,4 @@
+ARG PYTHON_VERSION=3
+
+FROM python:${PYTHON_VERSION}
+RUN apt-get update
